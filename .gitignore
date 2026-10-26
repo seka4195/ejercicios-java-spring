@@ -1,0 +1,7 @@
+# Ajustes de Eclipse de este PC
+.metadata/
+
+# Código compilado (se genera solo)
+bin/
+target/
+*.class
