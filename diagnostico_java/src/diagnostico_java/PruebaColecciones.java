@@ -94,6 +94,22 @@ public class PruebaColecciones {
 			
 			System.out.println(listaTitulosPs5);
 			
+			String tituloPs3 = videojuegos.stream()
+					.filter(v->v.getPlataforma().equals("PS3"))
+					.map(v->v.getTitulo())
+					.findFirst()
+					.orElse("Ninguno");
+			
+			System.out.println(tituloPs3);
+			
+			String tituloSwitch = videojuegos.stream()
+					.filter(v->v.getPlataforma().equals("Switch"))
+					.map(v->v.getTitulo())
+					.findFirst()
+					.orElse("Ninguno");
+			
+			System.out.println(tituloSwitch);
+			
 		}
 	}
 }
