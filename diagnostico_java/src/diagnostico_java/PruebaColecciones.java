@@ -34,36 +34,66 @@ public class PruebaColecciones {
 				System.out.println(videojuego);
 			}
 		}
-		
-		
-		Map<String,Integer> juegosPorPlataforma = new HashMap<>();
-		
-		for(Videojuego videojuego : videojuegos) {
+
+		Map<String, Integer> juegosPorPlataforma = new HashMap<>();
+
+		for (Videojuego videojuego : videojuegos) {
 			String plataforma = videojuego.getPlataforma();
-			
-			if(juegosPorPlataforma.containsKey(plataforma)) {
+
+			if (juegosPorPlataforma.containsKey(plataforma)) {
 				int cantidad = juegosPorPlataforma.get(plataforma);
 				juegosPorPlataforma.put(plataforma, cantidad + 1);
-			}else {
+			} else {
 				juegosPorPlataforma.put(plataforma, 1);
 			}
 		}
-		
-		for(String plataforma : juegosPorPlataforma.keySet()) {
+
+		for (String plataforma : juegosPorPlataforma.keySet()) {
 			System.out.println(plataforma + ": " + juegosPorPlataforma.get(plataforma));
+
+			Map<String, Double> nota = new HashMap<>();
+			nota.put("God Of War", 8.45);
+			nota.put("kingdom Hearts", 6.40);
+			nota.put("Mafia Old Country", 8.15);
+
+			System.out.println(nota.get("God Of War"));
+
+			System.out.println(nota.containsKey("GTA"));
+
+			nota.put("God Of War", 9.15);
+
+			System.out.println(nota);
+
+			long juegosConBuenaNota = videojuegos.stream()
+					.filter(v -> v.getNota() >= 8)
+					.count();
+
+			System.out.println(videojuegos);
+			System.out.println(juegosConBuenaNota);
+
+			List<String> listaOrdenada = videojuegos.stream()
+					.map(v -> v.getTitulo())
+					.sorted()
+					.toList();
+
+			System.out.println(listaOrdenada);
+
+			long listaPs5 = videojuegos.stream()
+					.filter(v -> v.getNota() >= 8)
+					.filter(v -> v.getPlataforma().equals("PS5"))
+					.count();
+
+			System.out.println(listaPs5);
 			
-		Map<String,Double> nota = new HashMap<>();
-		nota.put("God Of War", 8.45);
-		nota.put("kingdom Hearts", 6.40);
-		nota.put("Mafia Old Country", 8.15);
-		
-		System.out.println(nota.get("God Of War"));
-		
-		System.out.println(nota.containsKey("GTA"));
-		
-		nota.put("God Of War", 9.15);
-		
-		System.out.println(nota);
+			List<String> listaTitulosPs5 = videojuegos.stream()
+				
+					.filter(v->v.getNota()>=8)
+					.filter(v->v.getPlataforma().equals("PS5"))	
+					.map(v->v.getTitulo())
+					.toList();
+			
+			System.out.println(listaTitulosPs5);
+			
 		}
 	}
 }
