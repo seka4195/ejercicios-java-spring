@@ -6,8 +6,8 @@ import java.util.Map;
 
 @Component
 public class BibliotecaService {
-CalculadoraMedia calculadoraMedia;
-ContadorGeneros contadorGeneros;
+private CalculadoraMedia calculadoraMedia;
+private ContadorGeneros contadorGeneros;
 
  public BibliotecaService(CalculadoraMedia calculadoraMedia, ContadorGeneros contadorGeneros) {
 	 this.calculadoraMedia = calculadoraMedia;
@@ -16,8 +16,8 @@ ContadorGeneros contadorGeneros;
  }
  	
  public void mostrarResumen(ArrayList<Juego>juegos) {
-	 System.out.println(juegos.size());
-	 System.out.println(calculadoraMedia.calcularMedia(juegos));
+	 System.out.println("Total de juegos: " + juegos.size());
+	 System.out.println("Nota media: " + calculadoraMedia.calcularMedia(juegos));
 	 Map<String, Integer>generos = contadorGeneros.contarPorGenero(juegos);
 	 for (String genero : generos.keySet()) {
 		    System.out.println(genero + ": " + generos.get(genero));
@@ -28,7 +28,7 @@ ContadorGeneros contadorGeneros;
 			mejorJuego = juego;
 		}
 	 }
-	 System.out.println(mejorJuego.getTitulo());
+	 System.out.println("Mejor juego: " + mejorJuego.getTitulo());
  }
  
 }
