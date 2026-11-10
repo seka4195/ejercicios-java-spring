@@ -1,14 +1,20 @@
 package com.seka.spring.calentamiento;
+
 import java.util.ArrayList;
 
 public class CalculadoraMedia {
-	public static double  calcularMedia(ArrayList<Double> lista) {
+	public static double calcularMedia(ArrayList<Double> lista) {
+		if (lista.size() == 0) {
+			return 0.0;
+		}
+
 		double suma = 0;
-		for(Double nota : lista) {
+		for (Double nota : lista) {
 			suma = suma + nota;
 		}
-		return suma/lista.size();		
+		return suma / lista.size();
 	}
+
 	public static void main(String[] args) {
 		ArrayList<Double> misNotas = new ArrayList<>();
 		misNotas.add(9.5);
