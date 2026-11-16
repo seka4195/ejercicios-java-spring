@@ -1,12 +1,5 @@
 package com.seka.spring.calentamiento;
 
-<<<<<<< HEAD
-public class ContadorGeneros {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-=======
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +15,6 @@ public class ContadorGeneros {
 			}
 		}
 		return recuento;
->>>>>>> 8a93e1190ace919dc910603afb25687952f541c6
 	}
 
 }
