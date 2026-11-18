@@ -32,4 +32,14 @@ public class JuegoService {
 		}
 		return null;
 	}
+	
+	public List<Juego> filtrarPorGenero(String genero){
+		List<Juego> juegosGenero = new ArrayList<>();
+		for(Juego juego : juegos) {
+			if(genero.equals(juego.getGenero())) {
+				juegosGenero.add(juego);
+			}
+		}
+		return juegosGenero;
+	}
 }

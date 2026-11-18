@@ -27,4 +27,9 @@ public class JuegoController {
 	public Juego obtenerJuego(@PathVariable int id) {
 		return juegoService.buscarPorId(id);
 	}
+	
+	@GetMapping("/juegos/genero/{genero}")
+	public List<Juego> obtenerJuegosPorGenero (@PathVariable String genero) {
+		return juegoService.filtrarPorGenero(genero);
+	}
 }
