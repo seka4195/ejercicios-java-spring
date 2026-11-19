@@ -42,4 +42,31 @@ public class JuegoService {
 		}
 		return juegosGenero;
 	}
+	
+	public Juego guardarJuego(Juego juego) {
+		 juegos.add(juego);
+		 return juego;
+	}
+	
+	public boolean borrarJuego(int id) {
+		for(Juego juego : juegos) {
+			if(juego.getId()==id) {
+				juegos.remove(juego);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public Juego actualizarJuego(int id, Juego juego) {
+		for(Juego game : juegos) {
+			if(id==game.getId()) {
+				game.setNombre(juego.getNombre());
+				game.setGenero(juego.getGenero());
+				game.setNota(juego.getNota());
+				return game;
+			}
+		}
+		return null;
+	}
 }
